@@ -1,0 +1,6 @@
+dpl_favorites.list:
+  path: "/user/me/favorites"
+  defaults:
+    _controller: '\Drupal\dpl_favorites\Controller\DplFavoritesController::list'
+  requirements:
+    _permission: "access content"

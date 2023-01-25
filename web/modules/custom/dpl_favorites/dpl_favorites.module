@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Dpl_Favorites drupal module file.
+ *
+ * Renders the favorites list.
+ */

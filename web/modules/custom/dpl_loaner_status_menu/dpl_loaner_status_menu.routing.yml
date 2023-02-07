@@ -1,0 +1,6 @@
+dpl_loaner_status_menu.list:
+  path: "/user/me/loanerstatusmenu"
+  defaults:
+    _controller: '\Drupal\dpl_loaner_status_menu\Controller\DplLoanerStatusMenuController::list'
+  requirements:
+    _permission: "access content"

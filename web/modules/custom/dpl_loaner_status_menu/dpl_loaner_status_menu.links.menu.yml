@@ -1,0 +1,6 @@
+dpl_loaner_status_menu.list:
+  title: "Loaner Status Menu"
+  menu_name: user-profile-menu
+  route_name: dpl_loaner_status_menu.list
+  description: "Loaner status menu"
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dpl_loans\Controller;
+namespace Drupal\dpl_loaner_status_menu\Controller;
 
 use Drupal\Core\Block\BlockManagerInterface;
 use Drupal\Core\Controller\ControllerBase;
@@ -8,12 +8,12 @@ use Drupal\Core\Render\RendererInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Render loan list react app.
+ * Render intermediate list react app.
  */
-class DplLoansController extends ControllerBase {
+class DplLoanerStatusMenuController extends ControllerBase {
 
   /**
-   * DplLoansController constructor.
+   * DplFeesController constructor.
    *
    * @param \Drupal\Core\Block\BlockManagerInterface $blockManager
    *   Drupal block manager.
@@ -50,10 +50,12 @@ class DplLoansController extends ControllerBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function list(): array {
+
+    // You can hard code configuration, or you load from settings.
     $config = [];
 
-    /** @var \Drupal\dpl_loans\Plugin\Block\LoanListBlock $plugin_block */
-    $plugin_block = $this->blockManager->createInstance('dpl_loans_list_block', $config);
+    /** @var \Drupal\dpl_loaner_status_menu\Plugin\Block\LoanerStatusMenuBlock $plugin_block */
+    $plugin_block = $this->blockManager->createInstance('dpl_loaner_status_menu_block', $config);
 
     // Some blocks might implement access check.
     $access_result = $plugin_block->access($this->currentUser());

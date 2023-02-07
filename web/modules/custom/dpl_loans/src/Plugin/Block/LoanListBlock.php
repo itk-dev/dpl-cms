@@ -146,6 +146,7 @@ class LoanListBlock extends BlockBase implements ContainerFactoryPluginInterface
         'group-modal-go-to-material-aria-label-text' => $this->t("Go to @label material details", [], $context),
       ] + DplReactAppsController::externalApiBaseUrls()),
     ];
+
     return $build;
   }
 

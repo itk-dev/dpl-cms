@@ -39,14 +39,10 @@ $settings['config_exclude_modules'] = ['devel', 'field_ui', 'restui'];
 // advanced security measure: '../config/sync'.
 $settings['config_sync_directory'] = '../config/sync';
 
-// Set service base urls for the external APIs.
-$config['dpl_fbs.settings'] = ['base_url' => 'https://fbs-openplatform.dbc.dk'];
-$config['dpl_publizon.settings'] = ['base_url' => 'https://pubhub-openplatform.test.dbc.dk'];
-
 // Set service base urls for the react apps.
 $config['dpl_react_apps.settings']['services'] = [
   'cover' => ['base_url' => 'https://cover.dandigbib.org'],
-  'fbi' => ['base_url' => 'https://fbi-api.dbc.dk/opac/graphql'],
+  'fbi' => ['base_url' => 'https://fbi-api.dbc.dk/next/graphql'],
   'material-list' => ['base_url' => 'https://prod.materiallist.dandigbib.org'],
 ];
 
@@ -63,7 +59,7 @@ if (getenv('CI')) {
   // Wiremock.
   // Service base urls for the external APIs.
   $config['dpl_fbs.settings'] = ['base_url' => 'http://fbs-openplatform.dbc.dk'];
-  $config['dpl_publizon.settings'] = ['base_url' => 'http://pubhub-openplatform.test.dbc.dk'];
+  $config['dpl_publizon.settings'] = ['base_url' => 'http://pubhub-openplatform.dbc.dk'];
   // Adgangsplatformen OpenID Connect client.
   $config['openid_connect.settings.adgangsplatformen']['settings']['authorization_endpoint'] = 'http://login.bib.dk/oauth/authorize';
   $config['openid_connect.settings.adgangsplatformen']['settings']['token_endpoint'] = 'http://login.bib.dk/oauth/token/';
@@ -79,7 +75,7 @@ if (getenv('CI')) {
   // We need http domains for testing in CI context.
   $config['dpl_react_apps.settings']['services'] = [
     'cover' => ['base_url' => 'http://cover.dandigbib.org'],
-    'fbi' => ['base_url' => 'http://fbi-api.dbc.dk/opac/graphql'],
+    'fbi' => ['base_url' => 'http://fbi-api.dbc.dk/next/graphql'],
     'material-list' => ['base_url' => 'http://prod.materiallist.dandigbib.org'],
   ];
 }
@@ -108,7 +104,7 @@ if (getenv('LAGOON')) {
   if (
     // Do not enable the cache during install.
     !InstallerKernel::installationAttempted()
-    // Do not enable the the cache if php does not have the extension enabled.
+    // Do not enable the cache if php does not have the extension enabled.
     && extension_loaded('redis')
   ) {
     // Enable the cache backend.
